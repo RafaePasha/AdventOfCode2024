@@ -6,11 +6,7 @@ def isValid(values):
 
 
 def canBeMadeValid(values):
-    for i in range(len(values)):
-        new_values = values[:i] + values[i+1:]
-        if isValid(new_values):
-            return True
-    return False
+    return any(isValid(values[:i] + values[i+1:]) for i in range(len(values)))
 
 
 def main():
