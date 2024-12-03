@@ -19,10 +19,8 @@ def main():
         elif dont_pattern.fullmatch(part):
             mul_enabled = False
         elif mul_enabled:
-            matches = mul_pattern.findall(part)
-            for match in matches:
-                if len(match) == 2:
-                    total_sum += int(match[0]) * int(match[1])
+            total_sum += sum(int(match[0]) * int(match[1])
+                             for match in mul_pattern.findall(part))
 
     print(total_sum)
 
